@@ -9,9 +9,8 @@ variables <- ncol(nfhs)
 # Total number of variables in the sub section of the data.
 sub_variable_count <- ncol(subset(nfhs, select = hhid:shstruc))
 # Display the histogram
-histogram_plot <- ggplot(data = nfhs, 
-                         mapping = aes(x = hv009), binwidth = 1) +
-                    geom_histogram() +
+histogram_plot <- ggplot(data = nfhs) +
+                    geom_histogram(binwidth = 1, mapping = aes(x = hv009)) +
                     xlab("Number of household members")
 # Urban household data
 urban_household <- filter(nfhs, hv025 == 1)
